@@ -1,0 +1,253 @@
+
+<h2 class="sr-only">Interactive 3D mind map: AI algorithms applied to natural resources economics, spanning Machine Learning, Deep Learning, Computer Vision, Optimization, NLP, and Reinforcement Learning</h2>
+
+<div style="border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);overflow:hidden;margin-bottom:18px">
+  <div style="padding:10px 16px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between;background:var(--color-background-secondary)">
+    <span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">AI × Natural Resources Economics — 3D Mind Map</span>
+    <span style="font-size:11px;color:var(--color-text-secondary)">drag · scroll · click nodes</span>
+  </div>
+  <div style="position:relative;background:#060c1a">
+    <canvas id="mc" style="display:block;width:100%;height:480px;cursor:grab"></canvas>
+    <div id="mtt" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(4,8,24,0.85);border:0.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:7px 16px;font-size:12px;color:rgba(255,255,255,0.85);pointer-events:none;opacity:0;transition:opacity 0.3s;white-space:nowrap;max-width:88%;text-align:center;backdrop-filter:blur(4px)"></div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:18px">
+  <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary)"><span style="width:9px;height:9px;border-radius:50%;background:#7F77DD;flex-shrink:0"></span><span style="font-size:12px;color:var(--color-text-primary)">Machine Learning</span></div>
+  <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary)"><span style="width:9px;height:9px;border-radius:50%;background:#378ADD;flex-shrink:0"></span><span style="font-size:12px;color:var(--color-text-primary)">Deep Learning</span></div>
+  <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary)"><span style="width:9px;height:9px;border-radius:50%;background:#D85A30;flex-shrink:0"></span><span style="font-size:12px;color:var(--color-text-primary)">Computer Vision</span></div>
+  <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary)"><span style="width:9px;height:9px;border-radius:50%;background:#EF9F27;flex-shrink:0"></span><span style="font-size:12px;color:var(--color-text-primary)">Optimization</span></div>
+  <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary)"><span style="width:9px;height:9px;border-radius:50%;background:#639922;flex-shrink:0"></span><span style="font-size:12px;color:var(--color-text-primary)">NLP & Data Mining</span></div>
+  <div style="display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary)"><span style="width:9px;height:9px;border-radius:50%;background:#D4537E;flex-shrink:0"></span><span style="font-size:12px;color:var(--color-text-primary)">Reinforcement Learning</span></div>
+</div>
+
+<div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden">
+  <div style="padding:14px 16px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:10px;background:var(--color-background-secondary)">
+    <div style="width:42px;height:42px;border-radius:50%;background:#1a3a6b;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#7ab4f5;flex-shrink:0">MZ</div>
+    <div>
+      <div style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Majid Zadmirzai</div>
+      <div style="font-size:12px;color:var(--color-text-secondary)">majid.zadmirzai@gmail.com · Natural Resources Economist</div>
+    </div>
+    <button id="copybtn" style="margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;padding:6px 12px;cursor:pointer">
+      Copy post <i class="ti ti-copy" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div id="lipost" style="padding:16px 18px;font-size:14px;line-height:1.9;color:var(--color-text-primary);white-space:pre-line"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function() {
+  const BRANCHES = [
+    { label:'Machine\nLearning', hex:'#7F77DD', col:0x7F77DD,
+      desc:'Supervised & unsupervised models detecting resource price patterns and demand signals.',
+      children:[
+        {label:'Random Forest', desc:'Commodity price prediction with 85%+ accuracy via multi-factor ensemble modeling.'},
+        {label:'SVM', desc:'Geospatial resource classification and anomaly detection in extraction operations.'},
+        {label:'Gradient Boost', desc:'Short-term demand forecasting and production rate optimization at scale.'}
+      ]},
+    { label:'Deep\nLearning', hex:'#378ADD', col:0x378ADD,
+      desc:'Neural architectures capturing complex temporal and spatial dynamics in resource markets.',
+      children:[
+        {label:'LSTM Networks', desc:'Long-range temporal dependency modeling for oil & gas price series.'},
+        {label:'CNN Analysis', desc:'Seismic interpretation, geological image classification, core sample analysis.'},
+        {label:'Transformers', desc:'Multi-horizon forecasting with attention over climate and market sequences.'}
+      ]},
+    { label:'Computer\nVision', hex:'#D85A30', col:0xD85A30,
+      desc:'Satellite & aerial imagery analytics for real-time environmental resource monitoring.',
+      children:[
+        {label:'Deforestation AI', desc:'Sub-hectare forest cover change detection from multi-spectral satellites, daily updates.'},
+        {label:'Mineral Mapping', desc:'Spectral imaging for mineral deposit identification and volumetric quantification.'},
+        {label:'Crop Yield AI', desc:'Multi-spectral yield estimation enabling precision agriculture at national scale.'}
+      ]},
+    { label:'Optimization\nAlgorithms', hex:'#EF9F27', col:0xEF9F27,
+      desc:'Meta-heuristic and exact methods for multi-objective resource planning problems.',
+      children:[
+        {label:'Genetic Algos', desc:'Evolutionary approaches to drilling plans, mine scheduling, and logistics routing.'},
+        {label:'Particle Swarm', desc:'Portfolio and multi-objective resource allocation under deep uncertainty.'},
+        {label:'Linear Program', desc:'Supply chain design, refinery scheduling, and transportation network optimization.'}
+      ]},
+    { label:'NLP &\nData Mining', hex:'#639922', col:0x639922,
+      desc:'Text analytics on policy documents, market news, and scientific literature.',
+      children:[
+        {label:'Policy Analysis', desc:'Automated parsing of environmental regulations and resource policy documents.'},
+        {label:'Sentiment AI', desc:'Commodity market sentiment extraction from global news and social streams.'},
+        {label:'Knowledge Graph', desc:'Cross-literature synthesis for resource economics research and evidence mapping.'}
+      ]},
+    { label:'Reinforcement\nLearning', hex:'#D4537E', col:0xD4537E,
+      desc:'Sequential decision-making agents for dynamic, uncertain resource systems.',
+      children:[
+        {label:'Dynamic Pricing', desc:'Adaptive commodity pricing in volatile real-time markets using RL agents.'},
+        {label:'Autonomous Ops', desc:'Self-optimizing extraction and processing workflows in smart facilities.'},
+        {label:'Energy Grids', desc:'RL-driven smart grid management integrating renewable energy sources.'}
+      ]}
+  ];
+
+  const POST = `🌍 AI is Reshaping Natural Resources Economics — Here is the Map
+
+After years at the intersection of AI and resource economics, I have mapped the 6 algorithmic pillars now transforming how we model, forecast, and manage natural resources.
+
+🤖 Machine Learning
+Random Forest and Gradient Boosting achieve 85%+ accuracy in commodity price forecasting — consistently outperforming classical econometric baselines.
+
+🧠 Deep Learning
+LSTM networks capture temporal dependencies in oil & gas markets that ARIMA fundamentally cannot. CNNs are revolutionizing seismic interpretation and reservoir characterization.
+
+👁️ Computer Vision
+Satellite imagery + deep CV enables real-time deforestation monitoring at sub-hectare resolution. We can now track illegal mining from orbit with near-daily updates.
+
+⚙️ Optimization Algorithms
+Genetic algorithms and Particle Swarm Optimization are solving multi-objective extraction problems that were computationally intractable just five years ago.
+
+📝 NLP & Knowledge Mining
+Automated policy text analysis and news-based sentiment modeling are creating entirely new predictive data streams for resource price modeling.
+
+🎯 Reinforcement Learning
+Dynamic pricing agents and autonomous extraction schedulers are delivering 10–20% efficiency gains across energy and mining operations.
+
+The convergence of AI and natural resources economics is not a future promise — it is today's operational reality. I invite collaboration, joint research, and open debate in this space.
+
+📧 majid.zadmirzai@gmail.com
+
+#NaturalResourcesEconomics #AIinEconomics #MachineLearning #DeepLearning #EnergyEconomics #ComputerVision #ResourceManagement #DataScience #Sustainability #EconomicModeling`;
+
+  document.getElementById('lipost').textContent = POST;
+  document.getElementById('copybtn').addEventListener('click', function() {
+    navigator.clipboard.writeText(POST).catch(()=>{});
+    this.innerHTML = 'Copied! <i class="ti ti-check" aria-hidden="true"></i>';
+    setTimeout(()=>{ this.innerHTML = 'Copy post <i class="ti ti-copy" aria-hidden="true"></i>'; }, 2200);
+  });
+
+  const canvas = document.getElementById('mc');
+  const W = canvas.offsetWidth || 680, H = 480;
+  const DPR = Math.min(window.devicePixelRatio||1, 2);
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:false });
+  renderer.setPixelRatio(DPR);
+  renderer.setSize(W, H);
+  renderer.setClearColor(0x060c1a, 1);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(54, W/H, 0.1, 100);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+  const dl = new THREE.DirectionalLight(0xffffff, 1.0); dl.position.set(8,8,8); scene.add(dl);
+  const dl2 = new THREE.DirectionalLight(0x3355aa, 0.4); dl2.position.set(-8,-4,-8); scene.add(dl2);
+
+  function rrPath(cx,x,y,w,h,r){
+    cx.beginPath(); cx.moveTo(x+r,y); cx.lineTo(x+w-r,y);
+    cx.quadraticCurveTo(x+w,y,x+w,y+r); cx.lineTo(x+w,y+h-r);
+    cx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); cx.lineTo(x+r,y+h);
+    cx.quadraticCurveTo(x,y+h,x,y+h-r); cx.lineTo(x,y+r);
+    cx.quadraticCurveTo(x,y,x+r,y); cx.closePath();
+  }
+
+  function makeSprite(text, hex, big) {
+    const cw=260, ch=big?90:68;
+    const c=document.createElement('canvas'); c.width=cw; c.height=ch;
+    const cx=c.getContext('2d');
+    rrPath(cx,3,3,cw-6,ch-6,12);
+    cx.fillStyle=hex+'cc'; cx.fill();
+    cx.strokeStyle='rgba(255,255,255,0.3)'; cx.lineWidth=1.5; cx.stroke();
+    const lines=text.split('\n'); const fs=big?18:15;
+    cx.fillStyle='#fff'; cx.textAlign='center'; cx.textBaseline='middle';
+    cx.font=`700 ${fs}px system-ui,sans-serif`;
+    lines.forEach((l,i)=>{ cx.fillText(l,cw/2,ch/2+(i-(lines.length-1)/2)*(fs+5)); });
+    const tex=new THREE.CanvasTexture(c);
+    const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthTest:false}));
+    const sh=big?0.8:0.6; sp.scale.set(sh*(cw/ch),sh,1);
+    return sp;
+  }
+
+  function tube(p1,p2,hex,op){
+    const curve=new THREE.LineCurve3(p1.clone(),p2.clone());
+    const g=new THREE.TubeGeometry(curve,1,0.022,6,false);
+    const m=new THREE.MeshBasicMaterial({color:hex,transparent:true,opacity:op});
+    return new THREE.Mesh(g,m);
+  }
+
+  function makeSphere(pos,hex,label,r,big){
+    const grp=new THREE.Group(); grp.position.copy(pos);
+    const glow=new THREE.Mesh(new THREE.SphereGeometry(r*1.55,12,12),new THREE.MeshBasicMaterial({color:hex,transparent:true,opacity:0.13}));
+    grp.add(glow);
+    const mesh=new THREE.Mesh(new THREE.SphereGeometry(r,28,28),new THREE.MeshPhongMaterial({color:hex,emissive:hex,emissiveIntensity:0.22,shininess:95}));
+    grp.add(mesh);
+    const sp=makeSprite(label,hex,big); sp.position.y=r+(big?0.52:0.4); grp.add(sp);
+    return {grp,mesh};
+  }
+
+  function fibPos(i,n,rad){
+    const g=Math.PI*(3-Math.sqrt(5));
+    const y=1-((i+0.5)/n)*2, rx=Math.sqrt(Math.max(0,1-y*y)), t=g*i;
+    return new THREE.Vector3(rx*Math.cos(t)*rad, y*rad, rx*Math.sin(t)*rad);
+  }
+
+  function childPos(par,ci,cn,spread){
+    const d=par.clone().normalize();
+    let p=new THREE.Vector3();
+    if(Math.abs(d.x)<0.8) p.crossVectors(new THREE.Vector3(1,0,0),d).normalize();
+    else p.crossVectors(new THREE.Vector3(0,1,0),d).normalize();
+    const a=(ci-(cn-1)/2)*spread;
+    return d.clone().multiplyScalar(Math.cos(a)).addScaledVector(p,Math.sin(a)).normalize().multiplyScalar(par.length()+2.1);
+  }
+
+  const O=new THREE.Vector3(); const hits=[];
+  const {grp:cg}=makeSphere(O,'#1D9E75','AI × Natural\nResources Econ.',0.5,true);
+  scene.add(cg);
+
+  BRANCHES.forEach((br,bi)=>{
+    const bp=fibPos(bi,BRANCHES.length,2.85);
+    scene.add(tube(O,bp,br.hex,0.55));
+    const {grp:bg,mesh:bm}=makeSphere(bp,br.hex,br.label,0.3,false);
+    scene.add(bg); hits.push({mesh:bm,data:br});
+    br.children.forEach((ch,ci)=>{
+      const cp=childPos(bp,ci,br.children.length,0.47);
+      scene.add(tube(bp,cp,br.hex,0.3));
+      const {grp:chg,mesh:chm}=makeSphere(cp,br.hex,ch.label,0.2,false);
+      chg.scale.setScalar(0.82); scene.add(chg); hits.push({mesh:chm,data:ch});
+    });
+  });
+
+  const sph={th:0.3,ph:1.18,r:9}; let drag=false, prev={x:0,y:0}, auto=true;
+  function applyCamera(){
+    camera.position.set(sph.r*Math.sin(sph.ph)*Math.sin(sph.th),sph.r*Math.cos(sph.ph),sph.r*Math.sin(sph.ph)*Math.cos(sph.th));
+    camera.lookAt(0,0,0);
+  }
+  applyCamera();
+
+  canvas.addEventListener('mousedown',e=>{drag=true;prev={x:e.clientX,y:e.clientY};canvas.style.cursor='grabbing';auto=false;});
+  window.addEventListener('mouseup',()=>{drag=false;canvas.style.cursor='grab';setTimeout(()=>auto=true,2000);});
+  canvas.addEventListener('mousemove',e=>{
+    if(!drag)return; sph.th-=(e.clientX-prev.x)*0.006;
+    sph.ph=Math.max(0.25,Math.min(Math.PI-0.25,sph.ph+(e.clientY-prev.y)*0.006));
+    prev={x:e.clientX,y:e.clientY}; applyCamera();
+  });
+  canvas.addEventListener('wheel',e=>{e.preventDefault();sph.r=Math.max(4.5,Math.min(16,sph.r+e.deltaY*0.011));applyCamera();},{passive:false});
+  let tp=null;
+  canvas.addEventListener('touchstart',e=>{if(e.touches.length===1)tp={x:e.touches[0].clientX,y:e.touches[0].clientY};auto=false;});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault();if(e.touches.length===1&&tp){sph.th-=(e.touches[0].clientX-tp.x)*0.006;sph.ph=Math.max(0.25,Math.min(Math.PI-0.25,sph.ph+(e.touches[0].clientY-tp.y)*0.006));tp={x:e.touches[0].clientX,y:e.touches[0].clientY};applyCamera();}},{passive:false});
+  canvas.addEventListener('touchend',()=>{tp=null;setTimeout(()=>auto=true,3000);});
+
+  const rc=new THREE.Raycaster(), mv=new THREE.Vector2(), tt=document.getElementById('mtt');
+  let ttimer;
+  canvas.addEventListener('click',e=>{
+    const rect=canvas.getBoundingClientRect();
+    mv.x=((e.clientX-rect.left)/rect.width)*2-1;
+    mv.y=-((e.clientY-rect.top)/rect.height)*2+1;
+    rc.setFromCamera(mv,camera);
+    const hs=rc.intersectObjects(hits.map(h=>h.mesh));
+    if(hs.length){const nd=hits.find(h=>h.mesh===hs[0].object);if(nd){tt.textContent=nd.data.desc;tt.style.opacity='1';clearTimeout(ttimer);ttimer=setTimeout(()=>tt.style.opacity='0',5500);}}
+  });
+
+  const clk=new THREE.Clock();
+  function animate(){
+    requestAnimationFrame(animate);
+    if(auto){sph.th+=0.0035;applyCamera();}
+    renderer.render(scene,camera);
+  }
+  animate();
+
+  window.addEventListener('resize',()=>{
+    const nw=canvas.offsetWidth;renderer.setSize(nw,H);camera.aspect=nw/H;camera.updateProjectionMatrix();
+  });
+})();
+</script>
